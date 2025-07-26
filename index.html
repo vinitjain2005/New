@@ -1,0 +1,96 @@
+<!-- <script>
+    // x= Number(prompt("Enter number 1 :"))
+
+    // alert(`value of x is ${x}`)
+
+    // y=Number(prompt("Enter number 2:"))
+
+    // alert(`value of y is ${y}`)
+
+    // console.log("The numer of 1 and 2 :")
+
+    // alert(`Value of x and y is ${x+y}`)
+
+    // for(i=1;i<=10;i++){
+    //     output=`${num} * ${num*i} ${num} * ${11-i} = ${num*(11-i)}`
+    //     console.log(output)
+    //     }
+
+    // Guess a number game: JavaScript version
+
+
+// const jackpotNumber = Math.floor(Math.random() * 10) + 1;
+
+//     const userGuess = parseInt(prompt("Guess the jackpot number (1 to 20):"));
+
+//     if (userGuess === jackpotNumber) {
+//         alert("Congratulations! You hit the JACKPOT! ");
+//     } else {
+//         alert(`Sorry! Wrong guess.The jackpot number was ${jackpotNumber}.Try again!`);
+//     }
+
+
+//     counter = 0
+//     setInterval(function(){
+//         console.log(counter++);
+
+//     },1000)
+
+
+function getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  setInterval(function () {
+    document.body.style.backgroundColor = getRandomColor();
+  }, 1000);
+  
+</script> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinit</title>
+</head>
+<body>
+  <table border="1">
+    <thead>
+      <tr>                                                                                       
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+  <tbody id = "users-body">
+    </tbody>
+    </table>
+    <script>
+      url = "https://jsonplaceholder.typicode.com/users"
+
+fetch(url)
+.then(res => res.json())
+.then(result => {
+  console.log(result)
+  console.table(result)
+  output = ""
+  for(i=0; i<result.length; i++){
+    output += `<tr>
+      <td>${result[i].id}<td>
+        <td>${result[i].name}<td>
+          <td>${result[i].email}<td>
+          <tr>`
+  }
+  document.getElementById("users-body").innerHTML = output
+})
+    </script>
+</body>
+</html>
